@@ -11,7 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
@@ -33,10 +37,11 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+//import com.michaelpage.common.utils.MichaelpageConstants;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class RelativeLocators {
+public class RelativeLocators_FF {
 
 	private WebDriver driver;
 	private WebDriverWait webDriverWait;
@@ -48,7 +53,7 @@ public class RelativeLocators {
 	@BeforeSuite
 	public void setUpClass() {
 
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.firefoxdriver().setup();
 		System.out.println("In BeforeSuite");
 		
 		spark = new ExtentSparkReporter("ExtentReports.html");	//https://www.extentreports.com/docs/versions/5/java/index.html
@@ -69,27 +74,48 @@ public class RelativeLocators {
 	@BeforeTest
 	public void setUp() throws ClassNotFoundException {
 		
-		ChromeOptions options = new ChromeOptions();
-		//ChromeOptions options = new ChromeOptions();
-		options.setAcceptInsecureCerts(true);
-		options.setCapability(CapabilityType.BROWSER_NAME,"chrome");
-		options.addArguments("start-maximized");
-		options.addArguments("--js-flags=--expose-gc");
-		options.addArguments("--enable-precise-memory-info");
-		options.addArguments("--disable-popup-blocking");
-		options.addArguments("--disable-default-apps");
-		options.addArguments("--disable-notifications");
-		options.addArguments("disable-infobars");
-		//options.addArguments("--window-size=1920,1080");
-		options.addArguments("--remote-allow-origins=*");
+//		ChromeOptions options = new ChromeOptions();
+//		//ChromeOptions options = new ChromeOptions();
+//		options.setAcceptInsecureCerts(true);
+//		options.setCapability(CapabilityType.BROWSER_NAME,"chrome");
+//		options.addArguments("start-maximized");
+//		options.addArguments("--js-flags=--expose-gc");
+//		options.addArguments("--enable-precise-memory-info");
+//		options.addArguments("--disable-popup-blocking");
+//		options.addArguments("--disable-default-apps");
+//		options.addArguments("--disable-notifications");
+//		options.addArguments("disable-infobars");
+//		//options.addArguments("--window-size=1920,1080");
+//		options.addArguments("--remote-allow-origins=*");
 		
-		System.out.println("In BeforeTest");
-		driver = new ChromeDriver(options);
+		FirefoxProfile fxProfile = new FirefoxProfile();
+		fxProfile.setAcceptUntrustedCertificates(false);
+		fxProfile.setAssumeUntrustedCertificateIssuer(true);
+		fxProfile.setPreference("xpinstall.signatures.required", false);
+		fxProfile.setPreference("network.cookie.cookieBehavior", 1);
+		fxProfile.setPreference("browser.download.folderList", 2);
+		fxProfile.setPreference("browser.download.manager.showWhenStarting", false);
+		//fxProfile.setPreference("browser.download.dir", MichaelpageConstants.DOWNLOAD_PATH + "\\");
+		fxProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
+		fxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk",
+				"application/pdf,application/ms-excel,text/csv,image/jpeg,image/svg+xml,image/png,application/csv,application/vnd.ms-excel,application/octet-stream");
+
+		FirefoxOptions options = new FirefoxOptions();
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("moz:firefoxOptions", options);
+		//capabilities.setCapability(FirefoxProfile., fxProfile);
+		options .setProfile(fxProfile);
+		capabilities.setCapability("marionette", true);
+
+		WebDriverManager.firefoxdriver().arch64().setup();
+		
+		System.out.println("In BeforeTest"+ options.getBrowserName().toString());
+		driver = new FirefoxDriver(options);
 		webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		//new GherkinKeyword("When"),
 		
-		node = test.createNode("ChromeOptions configured");
-		node = test.createNode(new GherkinKeyword("When"), 	"ChromeOptions Configured 2");
+		node = test.createNode("FireFoxOptions configured");
+		node = test.createNode(new GherkinKeyword("When"), 	"FireFoxOptions Configured 2");
 	}
 	
 	@Test
@@ -212,4 +238,8 @@ public class RelativeLocators {
 			}
 		}
 
-}	
+}
+	
+	
+	
+	
