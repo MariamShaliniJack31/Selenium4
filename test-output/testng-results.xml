@@ -2,20 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7514" started-at="2023-08-07T15:10:02 EDT" finished-at="2023-08-07T15:10:10 EDT">
+  <suite name="Suite" duration-ms="7326" started-at="2023-08-10T12:50:30 EDT" finished-at="2023-08-10T12:50:37 EDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7514" started-at="2023-08-07T15:10:02 EDT" finished-at="2023-08-07T15:10:10 EDT">
-      <class name="Basics.SwitchToNewWindow">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:Basics.SwitchToNewWindow@10a035a0]" name="setUp" duration-ms="6672" started-at="2023-08-07T15:10:02 EDT" finished-at="2023-08-07T15:10:09 EDT">
+    <test name="Test" duration-ms="7326" started-at="2023-08-10T12:50:30 EDT" finished-at="2023-08-10T12:50:37 EDT">
+      <class name="WebDriverManager.Chrome">
+        <test-method status="PASS" signature="S4Chrome()[pri:0, instance:WebDriverManager.Chrome@79924b]" name="S4Chrome" duration-ms="7097" started-at="2023-08-10T12:50:30 EDT" finished-at="2023-08-10T12:50:37 EDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Basics.SwitchToNewWindow@10a035a0]" name="tearDown" is-config="true" duration-ms="804" started-at="2023-08-07T15:10:09 EDT" finished-at="2023-08-07T15:10:10 EDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- Basics.SwitchToNewWindow -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- S4Chrome -->
+      </class> <!-- WebDriverManager.Chrome -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
