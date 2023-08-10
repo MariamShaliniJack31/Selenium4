@@ -5,10 +5,10 @@
 	<test name="Test">
 		<classes>
 	    	<class name="WebDriverManager.Chrome" />
-<!-- 	    	<class name="Selenium4.RelativeLocators" /> -->
-<!-- 	    	<class name="Basics.SwitchToNewTab" /> -->
-<!-- 	    	<class name="Basics.SwitchToNewWindow" /> -->
+	    	<class name="Selenium4.RelativeLocators" />
+	    	<class name="Basics.SwitchToNewTab" />
+	    	<class name="Basics.SwitchToNewWindow" />
 	    </classes>
-	</test> <!-- Test -->
+	</test> 
 
-</suite> <!-- Suite -->
+</suite> 
