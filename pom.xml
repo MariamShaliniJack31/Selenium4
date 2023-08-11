@@ -114,12 +114,19 @@
 			<version>5.0.9</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
 			<artifactId>allure-testng</artifactId>
 			<version>2.23.0</version>
 		</dependency>
+
+<!-- 		Optional as we are using allure-testng -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-cucumber7-jvm</artifactId>
+			<version>2.23.0</version>
+		</dependency>
+
 
 	</dependencies>
 
@@ -141,9 +148,9 @@
 				<version>2.21.0</version>
 				<inherited>true</inherited>
 				<configuration>
-<!-- 					<argLine> -->
-<!-- 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar" -->
-<!-- 					</argLine> -->
+					<!-- <argLine> -->
+					<!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar" -->
+					<!-- </argLine> -->
 					<suiteXmlFiles>
 						<suiteXmlFile>
 							${basedir}/testNG.xml</suiteXmlFile>
@@ -151,13 +158,13 @@
 					<testFailureIgnore>true</testFailureIgnore>
 
 				</configuration>
-<!-- 				<dependencies> -->
-<!-- 					<dependency> -->
-<!-- 						<groupId>org.aspectj</groupId> -->
-<!-- 						<artifactId>aspectjweaver</artifactId> -->
-<!-- 						<version>1.9.19</version> -->
-<!-- 					</dependency> -->
-<!-- 				</dependencies> -->
+				<!-- <dependencies> -->
+				<!-- <dependency> -->
+				<!-- <groupId>org.aspectj</groupId> -->
+				<!-- <artifactId>aspectjweaver</artifactId> -->
+				<!-- <version>1.9.19</version> -->
+				<!-- </dependency> -->
+				<!-- </dependencies> -->
 
 			</plugin>
 

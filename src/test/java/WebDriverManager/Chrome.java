@@ -67,7 +67,7 @@ public class Chrome {
 		driver.get("http://www.google.com");
 
 		System.out.println(driver.getTitle());
-		//driver.quit();
+		driver.quit();
 	}
 }
 
